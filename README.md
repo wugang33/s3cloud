@@ -10,11 +10,10 @@
 git clone https://github.com/tensorflow/tensorflow.git
 git clone git@github.com:wugang33/s3cloud.git
 cp -r s3cloud tensorflow/tensorflow/core/platform
-change the file
-tensorflow/tensorflow/core/platform/default/build_config_root.bzl add
-line  deps.append("//tensorflow/core/platform/s3cloud:s3_file_system")
-under the line
-deps.append("//tensorflow/core/platform/cloud:gcs_file_system") 
+#change the file
+#tensorflow/tensorflow/core/platform/default/build_config_root.bzl add line  deps.append("//tensorflow/core/platform/s3cloud:s3_file_system")
+#under the line
+#deps.append("//tensorflow/core/platform/cloud:gcs_file_system") 
 cd tensorflow;./configure;
 bazel build --config opt //tensorflow/tools/pip_package:build_pip_package
 bazel-bin/tensorflow/tools/pip_package/build_pip_package /tmp/tensorflow_pkg
