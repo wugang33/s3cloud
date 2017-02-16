@@ -6,7 +6,7 @@
 
 ##Install
 
-'''
+
 1. git clone https://github.com/tensorflow/tensorflow.git
 2. git clone git@github.com:wugang33/s3cloud.git
 3. cp -r s3cloud tensorflow/tensorflow/core/platform
@@ -21,11 +21,12 @@ deps.append("//tensorflow/core/platform/cloud:gcs_file_system")
 /tmp/tensorflow_pkg
 7. sudo pip install
 /tmp/tensorflow_pkg/tensorflow-0.12.1-py2-none-any.whl
-'''
+
 
 ##Usage
 
-'''import tensorflow as tf
+```python
+import tensorflow as tf
 
 
 v1 = tf.Variable(tf.zeros([784,10]),name="v1")
@@ -42,8 +43,9 @@ with tf.Session() as sess:
     sess.run(init_op)
     save_path = saver.save(sess, "s3://BUCKET-mygod/test.ckpt")
     print "Model saved in file: ", save_path
-'''
-'''
+```
+
+```python
 import tensorflow as tf
 
 v1 = tf.Variable(tf.zeros([784,10]),name='v1')
@@ -60,4 +62,4 @@ with tf.Session() as sess:
     saver.restore(sess, "s3://BUCKET-mygod/test.ckpt")
     print "Model restored."
     # Do some work with the model
-'''
+```
