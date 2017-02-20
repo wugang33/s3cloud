@@ -1,0 +1,55 @@
+> POST /BUCKET-mygod/testfile-not-exists?uploads HTTP/1.1
+> User-Agent: curl/7.29.0
+> Accept: */*
+> Host: host142
+> Date: Mon, 13 Feb 2017 03:32:23 +0000
+> Content-Type: application/octet-stream
+> Authorization: AWS XN6QBMRYUE5H49KNVT1D:1z3CY2qaanEd3X2MbuoBShIfApI=
+> 
+< HTTP/1.1 200 OK
+HTTP/1.1 200 OK
+< x-amz-request-id: tx000000000000000000171-0058a128c8-1045-default
+x-amz-request-id: tx000000000000000000171-0058a128c8-1045-default
+< Content-Type: application/xml
+Content-Type: application/xml
+< Content-Length: 262
+Content-Length: 262
+< Date: Mon, 13 Feb 2017 03:32:24 GMT
+Date: Mon, 13 Feb 2017 03:32:24 GMT
+
+< 
+* Connection #1 to host host142 left intact
+<?xml version="1.0" encoding="UTF-8"?><InitiateMultipartUploadResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/"><Bucket>BUCKET-mygod</Bucket><Key>testfile-not-exists</Key><UploadId>2~PKjyg4vHDqwWYFwgk0VZ9TmdJww8iX3</UploadId></InitiateMultipartUploadResult>
+
+
+
+
+
+
+
+
+ot@host142 s3shell]# ./multipart-upload.sh 2~Ea4zaAYt9R6sS8UPgv5OjmcuM7uVvUL
+2~Ea4zaAYt9R6sS8UPgv5OjmcuM7uVvUL
+* About to connect() to host142 port 80 (#0)
+*   Trying 192.168.150.142...
+* Connected to host142 (192.168.150.142) port 80 (#0)
+> PUT /BUCKET-mygod/testfile-not-exists?partNumber=1&uploadId=2~Ea4zaAYt9R6sS8UPgv5OjmcuM7uVvUL HTTP/1.1
+> User-Agent: curl/7.29.0
+> Accept: */*
+> Host: host142
+> Date: Mon, 13 Feb 2017 07:33:11 +0000
+> Content-Type: application/octet-stream
+> Authorization: AWS XN6QBMRYUE5H49KNVT1D:TGyetgUHVB9ermaDoyPllY5IF6c=
+> Content-Length: 362156032
+> Expect: 100-continue
+> 
+* Done waiting for 100-continue
+* We are completely uploaded and fine
+< HTTP/1.1 200 OK
+< ETag: "79d5b8f3d25136939eb09f94b9d501ac"
+< Content-Length: 0
+< Accept-Ranges: bytes
+< x-amz-request-id: tx0000000000000000001a3-0058a16137-1045-default
+< Date: Mon, 13 Feb 2017 07:33:25 GMT
+< 
+* Connection #0 to host host142 left intact
